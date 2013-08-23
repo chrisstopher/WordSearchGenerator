@@ -62,8 +62,6 @@ int main(int argc, char* argv[]) {
 		}
 	} while (!words.overWordLimit() && !strings.empty());
 	sortIfSpecified(argc, argv, words);
-	std::cout << words << "\n";
-	std::cout << grid << "\n";
 	createFileFormatForGame(relativePath, words, grid);
 	strings.clear();
 	words.clear();
@@ -169,7 +167,6 @@ void createFileFormatForGame(std::string& relativePath, ws::WordList& words, ws:
 	if (createFile) {
 		std::ofstream outFile(relativePath.c_str());
 		outFile << words;
-		outFile << grid;
 		outFile.close();
 		std::cout << "\nThe file: " << filename << " has been created in \"" << filepath << "\".\n";
 	}
